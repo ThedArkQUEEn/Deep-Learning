@@ -1,3 +1,1 @@
-# Deep-Learning
-This Is For Deep Learning Resp
-"# Deep-Learning" 
+This is for Deep Learning Repository Task 
