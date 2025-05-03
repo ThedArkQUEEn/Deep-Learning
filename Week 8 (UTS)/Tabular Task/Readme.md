@@ -236,18 +236,19 @@ Menunjukkan seberapa baik model memprediksi target.
 
 ### 6. **ROC Curve**:
    - **True Positive Rate (TPR)**:
-     $$ TPR = \frac{\text{TP}}{\text{TP} + \text{FN}} $$
+     $$TPR = \frac{\text{TP}}{\text{TP} + \text{FN}}$$
    - **False Positive Rate (FPR)**:
-     $$ FPR = \frac{\text{FP}}{\text{FP} + \text{TN}} $$
+     $$FPR = \frac{\text{FP}}{\text{FP} + \text{TN}}$$
 
-## **Visualisasi**:
+## **Visualisasi**
    - Grafik **akurasi** dan **loss** terhadap epoch untuk melihat proses pelatihan.
-   - **Confusion Matrix**: Matriks untuk mengukur kesalahan prediksi antara kelas aktual dan prediksi.
-     Contoh struktur:
+   - **Confusion Matrix**: Matriks yang mengukur kesalahan prediksi antara kelas aktual dan prediksi.
+   
      | Actual \ Predicted | Not Positive | Positive |
      |---------------------|--------------|----------|
      | **Not Positive**    | TN           | FP       |
      | **Positive**        | FN           | TP       |
-   - **ROC Curve**: Grafik trade-off antara **True Positive Rate (TPR)** dan **False Positive Rate (FPR)**.
-     $$ \text{TPR} = \frac{TP}{TP + FN} $$
-     $$ \text{FPR} = \frac{FP}{FP + TN} $$
+
+   - **ROC Curve**: Grafik yang menunjukkan trade-off antara **True Positive Rate (TPR)** dan **False Positive Rate (FPR)**.
+     $$TPR = \frac{TP}{TP + FN}$$
+     $$FPR = \frac{FP}{FP + TN}$$
