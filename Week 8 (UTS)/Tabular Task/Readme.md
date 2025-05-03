@@ -228,11 +228,11 @@ Menunjukkan seberapa baik model memprediksi target.
    $$ \text{Recall} = \frac{\text{TP}}{\text{TP} + \text{FN}} $$
 
 ### 4. **F1 Score**: Harmonik antara presisi dan recall.
-   $$ \text{F1} = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}} $$
+   $$\text{F1} = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}$$
 
 ### 5. **AUC (Area Under Curve)**: Area di bawah ROC Curve, mengukur kemampuan model membedakan kelas.
    Nilai ini dihitung berdasarkan integral dari ROC Curve:
-   $$ \text{AUC} = \int_0^1 TPR \, dFPR $$
+   $$\text{AUC} = \int_0^1 TPR \, dFPR$$
 
 ### 6. **ROC Curve**:
    - **True Positive Rate (TPR)**:
