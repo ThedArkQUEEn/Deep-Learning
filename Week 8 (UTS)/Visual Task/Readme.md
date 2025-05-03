@@ -23,28 +23,27 @@ Hasil validasi dengan Batch Normalization lebih bagus dibanding tanpa Batch Norm
 ## **1. Pembersihan Label**
 Kode ini membersihkan label dengan menghapus spasi di awal dan akhir, serta mengubah huruf menjadi kecil:
 
-\text{df['label']} = \text{df['label']}.str.strip().str.lower()
+df['label'] = df['label'].str.strip().str.lower()
 
 Operasi ini tidak mengubah nilai numerik tetapi hanya mengubah format teks agar lebih seragam.
 
 ## **2. Label Encoding**
 Label encoding mengubah kategori string menjadi nilai numerik:
 
-$\text{label\_encoded} = \text{LabelEncoder().fit\_transform(df['label'])}$
+label_encoded = LabelEncoder().fit_transform(df['label'])
 
 Jika ada tiga kelas: `['fish', 'shark', 'whale']`, maka encoding bisa menjadi `{'fish': 0, 'shark': 1, 'whale': 2}`.
 
 ## **3. One-hot Encoding**
 One-hot encoding mengubah label kategorikal menjadi vektor biner:
 
-$\text{one\_hot} = \text{pd.get\_dummies(df['label'])}$
-
+one_hot = pd.get_dummies(df['label'])
 
 Ini penting untuk model pembelajaran mesin karena menghindari interpretasi ordinal dari label.
 
 ## **4. Resize dengan Padding**
 Fungsi `resize_with_padding(img, target_size=(150, 150))` mengubah ukuran gambar dengan mempertahankan aspek rasio:
-$\text{ratio} = \min \left(\frac{\text{target\_height}}{\text{old\_height}}, \frac{\text{target\_width}}{\text{old\_width}}\right)$
+ratio = min(target_height / old_height, target_width / old_width)
 Kemudian, gambar diubah ukuran dan ditambahkan padding agar sesuai dengan ukuran target.
 
 ## **5. Custom Directory Iterator**
@@ -52,7 +51,7 @@ Iterator khusus ini memproses batch gambar:
 - Membaca gambar dengan OpenCV
 - Mengonversi ke RGB
 - Melakukan normalisasi dengan:
-$\frac{\text{pixel\_value}}{255.0}$
+pixel_value / 255.0
 - Jika `class_mode='categorical'`, label dikonversi ke one-hot encoding.
 
 ## **6. Augmentasi Data**
@@ -96,17 +95,14 @@ yang membantu menangani eksploding/vanishing gradient.
 
 ## **4. Dropout untuk Regularisasi**
 Dropout mengabaikan beberapa neuron selama pelatihan:
-$h_i = 
-\begin{cases}
-    0, & \text{dengan probabilitas } p \\
-    \frac{h_i}{1 - p}, & \text{selainnya}
-\end{cases}$
+h_i = 0, dengan probabilitas p h_i / (1 - p), jika tetap aktif
+
 untuk mengurangi overfitting.
 
 ## **5. Softmax untuk Klasifikasi**
 Lapisan terakhir menggunakan **softmax** untuk klasifikasi multi-kelas:
 $\hat{y_i} = \frac{e^{z_i}}{\sum_{j=1}^{K} e^{z_j}}$
-di mana $ K $ adalah jumlah kelas, memastikan hasil probabilitas.
+di mana K adalah jumlah kelas, memastikan hasil probabilitas.
 
 ## **6. Optimasi dengan Adam**
 Adam Optimizer mengupdate parameter dengan:
@@ -118,7 +114,7 @@ dengan **momentum dan adaptasi learning rate**.
 ## **7. Loss Function: Categorical Crossentropy**
 Fungsi loss untuk klasifikasi multi-kelas:
 $L = - \sum_{i=1}^{K} y_i \log(\hat{y_i})$
-dengan $ K $ sebagai jumlah kelas dan $ y_i $ sebagai label sebenarnya.
+dengan K sebagai jumlah kelas dan y_i sebagai label sebenarnya.
 
 ## **8. Pelatihan Model**
 Model dilatih dengan:
