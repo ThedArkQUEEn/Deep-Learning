@@ -10,9 +10,7 @@ Bab ini membahas berbagai teknik pelatihan model dalam konteks **Regresi** dan *
 ### Rumus:
 - **Persamaan Garis Lurus:**  
   
-    $$
-    \hat{y} = \theta_0 + \theta_1x_1 + \theta_2x_2 + ... + \theta_nx_n
-    $$
+    $\hat{y} = \theta_0 + \theta_1x_1 + \theta_2x_2 + ... + \theta_nx_n$
   
   - **ŷ**: Nilai prediksi.
   - **θ**: Parameter model (bias dan bobot fitur).
@@ -54,9 +52,7 @@ Bab ini membahas berbagai teknik pelatihan model dalam konteks **Regresi** dan *
 - Model **Regresi Linear** kemudian dilatih pada data yang telah diperluas.
 - **Transformasi fitur:**  
 
-  $
-  x \rightarrow (1, x, x^2, ..., x^d)
-  $
+  $x \rightarrow (1, x, x^2, ..., x^d)$
 
   di mana:
   - **$x$** adalah fitur asli,
@@ -96,18 +92,14 @@ Bab ini membahas berbagai teknik pelatihan model dalam konteks **Regresi** dan *
 ### Jenis Regularisasi:
 - **Ridge Regression (L2 Regularization)**  
 
-  $
-  J(\theta) = \text{Loss} + \alpha \sum \theta^2
-  $
+  $J(\theta) = \text{Loss} + \alpha \sum \theta^2$
 
   - **Menekan bobot fitur agar tidak terlalu besar**.
   - **Menghindari overfitting** dengan memberikan penalti **L2 norm** pada parameter.
 
 - **Lasso Regression (L1 Regularization)**  
 
-  $
-  J(\theta) = \text{Loss} + \alpha \sum |\theta|
-  $
+  $J(\theta) = \text{Loss} + \alpha \sum |\theta|$
 
   - **Dapat membuat beberapa parameter menjadi nol**, sehingga berguna untuk **seleksi fitur**.
   - **Lebih agresif dalam mencegah overfitting** dibandingkan Ridge.
@@ -132,22 +124,16 @@ Meskipun disebut **regresi**, ini adalah algoritma klasifikasi untuk **masalah k
 ### Rumus:
 - **Prediksi probabilitas**  
 
-  $
-  h_{\theta}(z) = \sigma (\theta^T z)
-  $
+  $h_{\theta}(z) = \sigma (\theta^T z)$
 
   di mana **$\sigma(x)$** adalah fungsi sigmoid:
 
-  $
-  \sigma(x) = \frac{1}{1 + e^{-x}}
-  $
+  $\sigma(x) = \frac{1}{1 + e^{-x}}$
 
 ### Fungsi Loss:
 - **Log Loss (Binary Cross-Entropy)** digunakan sebagai fungsi biaya:
 
-  $
-  J(\theta) = -\frac{1}{m} \sum_{i=1}^{m} \Big[ y^{(i)} \log h_{\theta}(x^{(i)}) + (1 - y^{(i)}) \log (1 - h_{\theta}(x^{(i)})) \Big]
-  $
+  $J(\theta) = -\frac{1}{m} \sum_{i=1}^{m} \Big[ y^{(i)} \log h_{\theta}(x^{(i)}) + (1 - y^{(i)}) \log (1 - h_{\theta}(x^{(i)})) \Big]$
 
 ### Kesimpulan:
 - **Regresi Logistik tidak digunakan untuk prediksi angka**, tetapi untuk **klasifikasi probabilistik**.
