@@ -1,6 +1,6 @@
-# Teknik Pelatihan Model: Regresi dan Klasifikasi
+# Penjelasan Chapter 04 - Training Models
 
-Dokumen ini membahas berbagai teknik pelatihan model dalam konteks **Regresi** dan **Klasifikasi**. Berikut adalah poin-poin utama serta rumus yang digunakan dalam metode ini.
+Bab ini membahas berbagai teknik pelatihan model dalam konteks **Regresi** dan **Klasifikasi**. Berikut adalah poin-poin utama serta rumus yang digunakan dalam metode ini.
 
 ---
 
