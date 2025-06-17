@@ -1,89 +1,113 @@
-# Teknik Pelatihan Model: Regresi dan Klasifikasi
+# Penjelasan Chapter 05 - Support Vector Machines (SVM)
 
-Dokumen ini membahas berbagai teknik pelatihan model dalam konteks **Regresi** dan **Klasifikasi**. Berikut adalah poin-poin utama serta rumus yang digunakan dalam metode ini.
+Support Vector Machines (**SVMs**) adalah model pembelajaran mesin yang kuat dan serbaguna yang dapat digunakan untuk **klasifikasi linier**, **nonlinier**, **regresi**, dan **deteksi outlier**.
 
 ---
 
-## 1. Regresi Linear (Linear Regression)
-**Tujuan:** Memodelkan hubungan linear antara variabel input (fitur) dan variabel output (target).
+## 🔹 1. Klasifikasi SVM Linier (Linear SVM Classification)
 
-### Rumus:
-- **Persamaan Garis Lurus:**  
+### **Konsep Utama**:
+- Mencari **hyperplane** (garis dalam 2D, bidang dalam 3D, dst.) yang **memisahkan kelas-kelas dengan margin terbesar**.
+- **Margin** adalah jarak antara hyperplane dan **instance pelatihan terdekat** (disebut *support vector*).
+- **Soft Margin Classification** memungkinkan beberapa instance melanggar margin untuk keseimbangan antara **margin terbesar dan pelanggaran margin minimal**.
+
+### **Rumus**:
+- **Fungsi Keputusan** (Hyperplane):
+
+  $w^T x + b = 0$
+
+  di mana:
+  - **$w$** adalah vektor bobot,
+  - **$x$** adalah vektor instance,
+  - **$b$** adalah bias.
+
+- **Optimasi Tujuan**:
   
-    $$
-    \hat{y} = \theta_0 + \theta_1x_1 + \theta_2x_2 + ... + \theta_nx_n
-    $$
-  
-  - **ŷ**: Nilai prediksi.
-  - **θ**: Parameter model (bias dan bobot fitur).
-  - **x**: Nilai fitur.
+  $\min \frac{1}{2} ||w||^2$
 
-- **Persamaan Normal (The Normal Equation):**  
-  Digunakan untuk menemukan nilai **θ** yang meminimalkan fungsi biaya (misalnya, Mean Squared Error), dengan perhitungan matriks yang kompleks.
+  Dengan kendala:
 
-### Metode Optimalisasi:
-- **Gradient Descent:** Algoritma iteratif untuk menemukan nilai **θ** dengan bergerak menuju arah penurunan fungsi biaya.
-  - **Batch Gradient Descent**
-  - **Stochastic Gradient Descent (SGD)**
-  - **Mini-batch Gradient Descent**
+  $t_i (w^T x_i + b) \geq 1$
+
+  di mana **$t_i$** adalah label target **(+1 atau -1)**.
 
 ---
 
-## 2. Regresi Polinomial (Polynomial Regression)
-**Tujuan:** Memodelkan hubungan non-linear dengan menambahkan fitur polinomial.
+## 🔹 2. Klasifikasi SVM Nonlinier (Nonlinear SVM Classification)
 
-**Proses:**
-- Data asli diubah untuk menyertakan fitur polinomial (misalnya, **x², x³, dst.**).
-- Model **Regresi Linear** kemudian dilatih pada data yang telah diperluas.
+### **Konsep Utama**:
+- **Kernel Trick** digunakan untuk **memetakan instance ke ruang berdimensi lebih tinggi**, memungkinkan pemisahan linier di ruang yang lebih kompleks.
 
----
+### **Jenis Kernel**:
+- **Polynomial Kernel**:
 
-## 3. Kurva Pembelajaran (Learning Curves)
-- Grafik yang menunjukkan **kinerja model** pada data pelatihan dan validasi sebagai fungsi dari **ukuran set pelatihan**.
-- Membantu mendeteksi **overfitting** atau **underfitting**.
+  $K(a, b) = (a^T b + r)^d$
 
----
+  di mana **$d$** adalah **derajat polinomial**, **$r$** adalah **koefisien**.
 
-## 4. Model Regresi Regularisasi (Regularized Linear Models)
-**Tujuan:** Mencegah **overfitting** dengan menambahkan istilah regularisasi ke fungsi biaya.
+- **Gaussian RBF Kernel**:
 
-### Jenis Regularisasi:
-- **Ridge Regression:** Menambahkan istilah **L2 regularization**.
-- **Lasso Regression:** Menambahkan istilah **L1 regularization**.
-- **Elastic Net:** Kombinasi **L1 dan L2 regularization**.
-- **Early Stopping:** Menghentikan pelatihan lebih awal berdasarkan kinerja pada set validasi.
+  $K(a, b) = \exp(-\gamma ||a - b||^2)$
 
----
+  di mana **$\gamma$** mengontrol **lebar Gaussian**.
 
-## 5. Regresi Logistik (Logistic Regression)
-**Tujuan:**  
-Meskipun disebut **regresi**, ini adalah algoritma klasifikasi untuk **masalah klasifikasi biner**.
+### **Fungsi Keputusan di Ruang Fitur yang Dipetakan**:
 
-### Konsep Utama:
-- **Estimasi Probabilitas:** Menghasilkan probabilitas bahwa sebuah instance termasuk dalam kelas tertentu.
-- **Fungsi Biaya:**  
-  - **Logistic Cost Function** digunakan untuk pelatihan.
-- **Batas Keputusan (Decision Boundaries):**  
-  - Memisahkan instance dari kelas yang berbeda.
+$f(x) = \sum \alpha_i t_i K(x_i, x) + b$
+
+di mana **$\alpha_i$** adalah **bobot Lagrange**.
 
 ---
 
-## 6. Regresi Softmax (Softmax Regression)
-**Tujuan:**  
-Merupakan generalisasi dari **Regresi Logistik** untuk **masalah klasifikasi multi-kelas**.
+## 🔹 3. Regresi SVM (SVM Regression)
 
-### Karakteristik:
-- Menghasilkan **probabilitas** untuk setiap kelas.
-- Digunakan untuk **klasifikasi multikelas**.
+### **Konsep Utama**:
+- **Alih-alih memisahkan dua kelas**, regresi **SVM** menyesuaikan sebanyak mungkin instance **dalam margin** yang ditentukan oleh **$\epsilon$**.
+- **Epsilon-insensitive Tube**: Semua prediksi dalam **tabung epsilon** dianggap benar.
+
+### **Rumus**:
+Mirip dengan **klasifikasi SVM**, tetapi dengan tujuan berbeda:
+
+$\min \frac{1}{2} ||w||^2 + C \sum (|\xi_i| + |\xi_i^*|)$
+
+Dengan kendala:
+
+$|y_i - (w^T x_i + b)| \leq \epsilon + |\xi_i|$
+
+di mana **$\xi_i$** adalah **variabel slack**.
 
 ---
 
-## 7. Rumus Tambahan
-Dokumen ini juga mencakup:
-- **Fungsi Biaya (Cost Functions)** untuk berbagai jenis regresi.
-- **Perhitungan gradien dalam Gradient Descent**.
-- **Istilah regularisasi dalam Ridge, Lasso, dan Elastic Net**.
-- **Fungsi Logistik (Sigmoid Function)**.
-- **Fungsi Softmax**.
+## 🔹 4. Di Balik Layar (Under the Hood)
+
+### **Fungsi Keputusan dan Prediksi**:
+- **Fungsi keputusan menghitung skor** berdasarkan **vektor bobot** dan instance.
+- **Tanda skor** menentukan kelas **(+ atau -)**.
+
+### **Tujuan Pelatihan (Training Objective)**:
+- Menemukan **$w$** dan **$b$** yang **meminimalkan fungsi biaya**.
+
+### **Masalah Dual (The Dual Problem)**:
+- **Memecahkan masalah dual sering lebih efisien**, terutama dengan **kernel trick**.
+- **Hanya support vector** yang digunakan dalam solusi, sehingga meningkatkan efisiensi komputasi.
+
+---
+
+## 🔹 5. SVM Online (Online SVMs)
+
+### **Algoritma**:
+- **SVM dapat dilatih secara online** menggunakan **Stochastic Gradient Descent (SGD)**.
+- Implementasi dengan **`SGDClassifier`** di **Scikit-Learn**.
+
+### **Manfaat**:
+- Dapat menangani **data streaming** atau **dataset besar** yang tidak muat dalam memori.
+
+---
+
+##  **Kesimpulan**
+- **SVM dapat digunakan untuk berbagai tugas**, termasuk **klasifikasi**, **regresi**, dan **deteksi outlier**.
+- **Kernel Trick memungkinkan klasifikasi nonlinier** dengan memetakan data ke dimensi lebih tinggi.
+- **Regresi SVM menggunakan pendekatan epsilon-insensitive** untuk menemukan model yang tetap dalam margin.
+- **SVM online dapat menangani dataset besar** dengan metode **SGD**.
 
 ---
