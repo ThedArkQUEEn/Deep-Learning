@@ -1,60 +1,50 @@
 # Penjelasan Chapter 01 - The Machine Learning Landscape
 
-## Apa itu Machine Learning?
+## 1. Apa Itu Machine Learning?
+Machine Learning (ML) adalah ilmu yang memprogram komputer agar dapat belajar dari data tanpa harus diprogram secara eksplisit.
 
-Machine Learning adalah ilmu (dan seni) memprogram komputer agar mereka dapat belajar dari data. Lebih formalnya:
+### Definisi Formal:
+Sebuah program komputer dikatakan belajar dari pengalaman (E) terhadap suatu tugas (T) dengan ukuran kinerja (P), jika kinerjanya pada T, yang diukur oleh P, meningkat seiring dengan pengalaman E.
 
-*   **Arthur Samuel (1959):** "Machine Learning adalah bidang studi yang memberikan komputer kemampuan untuk belajar tanpa diprogram secara eksplisit."
-*   **Tom Mitchell (1997):** "Program komputer dikatakan belajar dari pengalaman E sehubungan dengan tugas T dan ukuran kinerja P, jika kinerjanya pada T, sebagaimana diukur oleh P, meningkat dengan pengalaman E."
+### Contoh Praktis:
+- **Tugas (T):** Mengklasifikasikan email baru sebagai spam atau bukan (ham).
+- **Pengalaman (E):** Data latih berisi contoh email spam dan ham.
+- **Kinerja (P):** Akurasi, yaitu rasio email yang diklasifikasikan dengan benar.
 
-Contoh: Filter spam email. Tugas (T) adalah menandai spam, pengalaman (E) adalah data email pelatihan, dan kinerja (P) adalah akurasi klasifikasi.
+### Mengapa Menggunakan ML?
+ML sangat berguna untuk:
+- **Masalah dengan Aturan yang Kompleks:** Menggantikan daftar panjang aturan dengan algoritma yang lebih ringkas, akurat, dan mudah diperbarui.
+- **Masalah Tanpa Solusi Tradisional:** Menemukan solusi untuk masalah yang tidak memiliki algoritma yang diketahui (contoh: pengenalan suara).
+- **Lingkungan yang Berubah-ubah:** Sistem ML dapat beradaptasi dengan data baru secara otomatis.
+- **Data Mining:** Membantu menemukan pola atau tren dalam data yang besar.
 
-## Mengapa Menggunakan Machine Learning?
+## 2. Jenis-jenis Sistem Machine Learning
+### Berdasarkan Pengawasan Manusia
+- **Supervised Learning:** Data latih diberi label, digunakan dalam klasifikasi dan regresi.
+- **Unsupervised Learning:** Data latih tidak memiliki label, digunakan dalam clustering, anomaly detection, dimensionality reduction.
+- **Semi-supervised Learning:** Kombinasi data berlabel dan tidak berlabel.
+- **Reinforcement Learning:** Model belajar dengan interaksi lingkungan dan mendapatkan reward.
 
-*   **Solusi kompleks:** ML menyederhanakan masalah yang kompleks atau sulit diselesaikan dengan pemrograman tradisional.
-*   **Adaptasi:** Sistem ML dapat beradaptasi dengan data baru dan perubahan lingkungan.
-*   **Wawasan:** ML dapat membantu mengungkap pola dan wawasan tersembunyi dalam data.
+### Berdasarkan Kemampuan Belajar
+- **Batch Learning:** Model dilatih dengan semua data sekaligus.
+- **Online Learning:** Model dilatih secara bertahap dengan data yang diberikan sekuensial.
 
-## Contoh Aplikasi Machine Learning
+### Berdasarkan Cara Generalisasi
+- **Instance-Based Learning:** Model membandingkan data baru dengan data latih (contoh: k-NN).
+- **Model-Based Learning:** Model membangun abstraksi dari data latih untuk membuat prediksi.
 
-*   **Klasifikasi gambar:** Mengklasifikasikan gambar produk di jalur produksi.
-*   **Deteksi tumor:** Mendeteksi tumor dalam pemindaian otak.
-*   **Pemrosesan bahasa alami (NLP):** Mengklasifikasikan artikel berita, menandai komentar ofensif, meringkas dokumen.
-*   **Peramalan:** Meramalkan pendapatan perusahaan.
-*   **Deteksi penipuan:** Mendeteksi penipuan kartu kredit.
-*   **Sistem rekomendasi:** Merekomendasikan produk kepada pelanggan.
+## 3. Tantangan Utama dalam Machine Learning
+- **Data Tidak Representatif:** Sampling bias dapat menyebabkan generalisasi buruk.
+- **Data Berkualitas Buruk:** Error, outlier, dan noise mempersulit analisis.
+- **Overfitting:** Model terlalu kompleks dan "menghafal" noise pada data latih.
+- **Underfitting:** Model terlalu sederhana dan tidak dapat mengenali pola yang ada.
 
-## Jenis Sistem Machine Learning
+## 4. Pengujian dan Validasi
+- **Training Set & Test Set:** Memisahkan data untuk pelatihan dan pengujian.
+- **Validation Set:** Untuk seleksi model dan tuning hyperparameter.
+- **Train-Dev Set:** Digunakan untuk mengatasi data mismatch.
 
-Sistem Machine Learning dapat diklasifikasikan berdasarkan:
+## 5. Teorema "No Free Lunch"
+Tidak ada model yang bekerja paling baik untuk semua masalah. Setiap model memiliki asumsi tertentu tentang data, sehingga penting untuk mencoba berbagai model dan mengevaluasi hasilnya.
 
-### 1.  Supervisi Selama Pelatihan
-
-*   **Supervised Learning (Pembelajaran Terawasi):** Data pelatihan berisi label (solusi yang diinginkan). Contoh: Klasifikasi, Regresi.
-*   **Unsupervised Learning (Pembelajaran Tanpa Awasi):** Data pelatihan tidak berlabel. Contoh: Clustering, Reduksi Dimensi, Deteksi Anomali.
-*   **Semisupervised Learning (Pembelajaran Semi-Terawasi):** Data pelatihan sebagian berlabel.
-*   **Reinforcement Learning (Pembelajaran Penguatan):** Agen belajar dengan berinteraksi dengan lingkungan dan menerima hadiah atau hukuman.
-
-### 2.  Kemampuan Belajar Bertahap
-
-*   **Batch Learning (Pembelajaran Batch):** Sistem belajar dari semua data yang tersedia sekaligus, offline.
-*   **Online Learning (Pembelajaran Online):** Sistem belajar secara bertahap dari aliran data yang masuk, online.
-
-### 3.  Metode Generalisasi
-
-*   **Instance-Based Learning (Pembelajaran Berbasis Instans):** Generalisasi dengan membandingkan data baru dengan contoh yang dipelajari menggunakan ukuran kesamaan.
-*   **Model-Based Learning (Pembelajaran Berbasis Model):** Generalisasi dengan membangun model dari data pelatihan dan menggunakan model tersebut untuk prediksi.
-
-## Tantangan Utama Machine Learning
-
-*   **Data Pelatihan Tidak Cukup:** Algoritma ML memerlukan banyak data untuk bekerja dengan baik.
-*   **Data Pelatihan Tidak Representatif:** Data pelatihan harus mewakili kasus baru yang ingin digeneralisasikan.
-*   **Data Berkualitas Buruk:** Data yang penuh kesalahan, outlier, atau noise dapat menghambat pembelajaran.
-*   **Fitur Tidak Relevan:** Fitur yang tidak relevan dapat menyulitkan sistem untuk menemukan pola.
-*   **Overfitting Data Pelatihan:** Model terlalu cocok dengan data pelatihan dan tidak dapat menggeneralisasi dengan baik untuk data baru.
-*   **Underfitting Data Pelatihan:** Model terlalu sederhana dan gagal menangkap pola dasar dalam data.
-
-## Testing dan Validasi
-
-*   Penting untuk mengevaluasi model pada data yang tidak terlihat (set pengujian) untuk mengukur kemampuan generalisasi.
-*   Penyetelan hiperparameter dan pemilihan model memerlukan validasi (misalnya, validasi silang).
+---
