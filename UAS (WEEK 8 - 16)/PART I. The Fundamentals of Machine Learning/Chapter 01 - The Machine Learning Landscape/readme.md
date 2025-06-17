@@ -1,7 +1,4 @@
-```markdown
-# Penjelasan Bagian I Bab 1: Dasar-Dasar Machine Learning
-
-Ini adalah ringkasan dari Bagian I Bab 1 dari buku "Hands-on Machine Learning with Scikit-Learn, Keras, and TensorFlow" oleh Aurélien Géron. Bab ini memperkenalkan konsep dasar Machine Learning.
+# Penjelasan Chapter 01 - The Machine Learning Landscape
 
 ## Apa itu Machine Learning?
 
@@ -61,6 +58,3 @@ Sistem Machine Learning dapat diklasifikasikan berdasarkan:
 
 *   Penting untuk mengevaluasi model pada data yang tidak terlihat (set pengujian) untuk mengukur kemampuan generalisasi.
 *   Penyetelan hiperparameter dan pemilihan model memerlukan validasi (misalnya, validasi silang).
-
-Ini adalah ringkasan singkat dari konsep-konsep utama yang dibahas dalam Bagian I Bab 1. Untuk pemahaman yang lebih mendalam, disarankan untuk membaca bab lengkap dari buku.
-```
