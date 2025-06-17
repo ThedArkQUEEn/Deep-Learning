@@ -33,7 +33,7 @@ Chapter ini memandu pembaca melalui langkah-langkah dalam proyek machine learnin
 - **Melatih dan Mengevaluasi pada Training Set (Training and Evaluating on the Training Set)**: Gunakan Scikit-Learn untuk melatih model.
 - **Evaluasi dengan Cross-Validation (Better Evaluation Using Cross-Validation)**: Gunakan teknik cross-validation.
 
-## 7. Fine-Tune Model Anda
+## 7. Fine-Tune Model
 - **Grid Search**: Cari kombinasi hyperparameter terbaik.
 - **Randomized Search**: Cari kombinasi hyperparameter secara acak.
 - **Metode Ensemble (Ensemble Methods)**: Gabungkan beberapa model untuk meningkatkan kinerja.
@@ -48,5 +48,3 @@ Chapter ini memandu pembaca melalui langkah-langkah dalam proyek machine learnin
 - Terapkan model ke lingkungan produksi, pantau kinerjanya, dan lakukan pemeliharaan rutin.
 
 ---
-
-Dokumen ini memberikan panduan lengkap untuk proyek machine learning dari awal hingga akhir, membantu pembaca memahami alur kerja dan praktik terbaik dalam ML.
