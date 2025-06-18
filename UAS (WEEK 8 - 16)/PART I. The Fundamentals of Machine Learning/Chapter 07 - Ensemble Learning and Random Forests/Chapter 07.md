@@ -19,7 +19,7 @@ Bab ini membahas bagaimana menggabungkan beberapa model pembelajaran mesin untuk
 ### Voting Hard
 Memilih kelas dengan **suara terbanyak** dari semua pengklasifikasi:
 
-$y_{pred} = \underset{k}{\operatorname{mode}} (y_1, y_2, ..., y_n)$
+$y_{pred} = \text{mode}(y_1, y_2, ..., y_n)$
 
 Di mana ( $y_1, y_2, ..., y_n$ ) adalah prediksi dari setiap model.
 
@@ -44,7 +44,7 @@ Random Forest adalah bagging dengan tambahan pemilihan fitur acak untuk setiap p
 
 Prediksi ensemble untuk klasifikasi:
 
-$y_{pred} = \underset{k}{\operatorname{mode}} (y_1, y_2, ..., y_n)$
+$y_{pred} = \text{mode}(y_1, y_2, ..., y_n)$
 
 Prediksi ensemble untuk regresi:
 
