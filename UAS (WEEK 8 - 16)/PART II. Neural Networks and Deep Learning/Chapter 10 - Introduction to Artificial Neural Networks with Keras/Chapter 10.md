@@ -102,4 +102,4 @@
 *   **Optimizer (`optimizer`)**:
     *   Algoritma yang digunakan untuk memperbarui bobot model berdasarkan gradien yang dihitung.
     *   **`sgd` (Stochastic Gradient Descent)**: Algoritma optimisasi dasar. `weight = weight - learning_rate * gradient`.
-    *   Akan ada diskusi lebih lanjut tentang optimizer yang lebih canggih di bab berikutnya (halaman 351).
+    *   Akan ada diskusi lebih lanjut tentang optimizer yang lebih canggih di bab berikutnya.
